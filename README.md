@@ -1,6 +1,10 @@
 # Idid
 
-TODO: Write a gem description
+Ruby CLI to [iDoneThis](http://idonethis.com).
+
+## Usage (easy)
+
+    $ idid Something awesome that my colleagues should know about.
 
 ## Installation
 
@@ -15,10 +19,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install idid
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
