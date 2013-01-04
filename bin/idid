@@ -11,7 +11,6 @@ rescue
   config.write
 end
 
-puts ARGV
 Idid.configuration = config
 Idid.send ARGV
 
