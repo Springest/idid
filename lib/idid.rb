@@ -25,8 +25,6 @@ module Idid
         options[(key.to_sym rescue key) || key] = options.delete(key)
       end
 
-      puts options
-
       case method
       when 'smtp'
         setup_smtp options
