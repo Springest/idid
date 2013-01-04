@@ -6,8 +6,7 @@ module Idid
         status "Please take a moment to create a new configuration.."
         config = user_config
         config['delivery'] ||= {}
-        user_config_from_key 'project',
-          "What is the name of your iDoneThis project (look at the url: <project>.idonethis.com)", nil, config
+        user_config_from_key 'project', "What is the name of your iDoneThis project (look at the url: <project>.idonethis.com)", nil, config
         user_config_from_key 'email', "What is your associated email address for this iDoneThis project?", nil, config
         user_config_from_key 'method', "How do you want to send emails to iDoneThis? (smtp, sendmail, exim)", 'smtp', config['delivery']
 
@@ -25,7 +24,7 @@ module Idid
           user_config_from_key key, key.to_s, default, config['delivery']['options']
         end
 
-        Idid::Configuration.new(config)
+        Idid::Configuration.new config
       end
 
       def user_config_from_key(key, text, default, config = nil)
@@ -46,7 +45,7 @@ module Idid
         puts "\e[36m#{text}\e[0m"
       end
 
-      def fail(text='Failed!')
+      def fail(text = 'Failed!')
         puts "\e[31m#{text}\e[0m"
       end
 

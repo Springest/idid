@@ -2,8 +2,6 @@
 
 require File.expand_path('../../lib/idid', __FILE__)
 
-
-
 begin
   config = Idid::Configuration.new
 rescue

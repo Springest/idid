@@ -7,7 +7,7 @@ module Idid
   class << self
     attr_accessor :configuration
 
-    def send *words
+    def send(*words)
       setup_delivery
       Mail.deliver do
         from    Idid.configuration.email
@@ -35,7 +35,7 @@ module Idid
       end
     end
 
-    def setup_smtp options = {}
+    def setup_smtp(options = {})
       Mail.defaults do
         delivery_method :smtp, Idid::Configuration::SMTP_DEFAULTS.merge(options)
       end
@@ -47,7 +47,7 @@ module Idid
       end
     end
 
-    def setup_exim options={}
+    def setup_exim(options={})
       Mail.defaults do
         delivery_method :exim, Idid::Configuration::EXIM_DEFAULTS.merge(options)
       end
