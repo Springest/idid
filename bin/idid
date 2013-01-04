@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+
+require File.expand_path('../../lib/idid', __FILE__)
+
+
+
+begin
+  config = Idid::Configuration.new
+rescue
+  config = Idid::Interactive.create_config
+  config.write
+end
+
+puts ARGV
+Idid.configuration = config
+Idid.send ARGV
+
+puts 'done'
