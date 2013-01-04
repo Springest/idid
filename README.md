@@ -8,17 +8,14 @@ Ruby CLI to [iDoneThis](http://idonethis.com).
 
 ## Installation
 
-Add this line to your application's Gemfile:
+    $ [sudo] gem install idid
 
-    gem 'idid'
+## Todo
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install idid
+1. Write some more tests for mail delivery configurations.
+2. Keeping of dones locally for easy review.
+3. Off-line support (queue dones and send later).
+4. Support for iDoneThis personal.
 
 ## Contributing
 
