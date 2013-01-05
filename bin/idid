@@ -7,9 +7,14 @@ begin
 rescue
   config = Idid::Interactive.create_config
   config.write
+  Idid::Interactive.status "Got your settings. Let's record your progress!"
 end
 
-Idid.configuration = config
-Idid.send ARGV
-
-puts 'done'
+if ARGV.any?
+  task = Idid::Task.new ARGV.join " "
+  task.save
+  Idid::Delivery.new(config).email task.to_s
+  Idid::Interactive.status "Got it! Let's get some more done!"
+else
+  Idid::Interactive.fail "Shoot! An empty message cannot be send!"
+end

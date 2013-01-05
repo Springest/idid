@@ -20,4 +20,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rspec', '~> 2.12.0'
 
   gem.add_runtime_dependency 'mail', '~> 2.5.3'
+  gem.add_runtime_dependency 'json', '~> 1.7.5'
 end
