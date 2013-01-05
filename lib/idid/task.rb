@@ -51,7 +51,7 @@ module Idid
       list = read_log[date]
 
       if list.nil?
-        "\e[31mCould not find any activity for#{formatted_date}\e[0m"
+        "Could not find any activity for#{formatted_date}"
       else
         formatted_log = list.map{|l| '* ' + l }.join "\n"
         "Log for#{formatted_date}:\n#{formatted_log}"

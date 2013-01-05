@@ -6,6 +6,8 @@ Ruby CLI to [iDoneThis](http://idonethis.com).
 
     $ idid Something awesome that my colleagues should know about.
 
+See `idid -h` for more available options.
+
 ## Installation
 
     $ [sudo] gem install idid
