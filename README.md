@@ -1,5 +1,7 @@
 # Idid
 
+[![Build Status](https://travis-ci.org/foxycoder/idid.png)](https://travis-ci.org/foxycoder/idid)
+
 Ruby CLI to [iDoneThis](http://idonethis.com).
 
 ## Usage (easy)
