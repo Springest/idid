@@ -35,7 +35,7 @@ module Idid
     #
     # Returns a new Idid::Configuration instance
     def initialize(options = {})
-      options = options.merge read_config if read_config
+      options = read_config.merge options if read_config
       raise ArgumentError.new "Provide a project to use." unless options['project']
       raise ArgumentError.new "Provide an email address." unless options['email']
       raise ArgumentError.new "Provide a delivery method." unless options['delivery']
