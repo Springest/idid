@@ -1,17 +1,42 @@
 #!/usr/bin/env ruby
-
+require 'optparse'
 require File.expand_path('../../lib/idid', __FILE__)
 
+options = {}
 
+OptionParser.new do |opts|
+  # Show help screen
+  opts.on( '-h', '--help', 'Display this screen' ) do
+    puts opts
+    exit
+  end
 
-begin
-  config = Idid::Configuration.new
-rescue
-  config = Idid::Interactive.create_config
-  config.write
+  # Show list of done items
+  list_desc = "Show done log for date. Default: today."
+  options[:list] = nil
+  opts.on('-l', '--list [YYYY-MM-DD]', list_desc) do |f|
+    options[:list] = f || Time.now.strftime('%Y-%m-%d')
+  end
+end.parse!
+
+if options[:list]
+  puts Idid::Task.list options[:list]
+else
+  begin
+    config = Idid::Configuration.new
+  rescue
+    config = Idid::Interactive.create_config
+    config.write
+    Idid::Interactive.status "Got your settings. Let's record your progress!"
+  end
+
+  if ARGV.any?
+    task = Idid::Task.new ARGV.join " "
+    task.save
+
+    Idid::Delivery.new(config).email task.to_s
+    Idid::Interactive.status "Got it! Let's get some more done!"
+  else
+    Idid::Interactive.fail "Shoot! An empty message cannot be send!"
+  end
 end
-
-Idid.configuration = config
-Idid.send ARGV
-
-puts 'done'

@@ -1,7 +1,7 @@
 module Idid
   class Configuration
 
-    SMTP_DEFAULTS = { 
+    SMTP_DEFAULTS = {
       :address => 'smtp.gmail.com',
       :port => '587',
       :user_name => ENV['GMAIL_SMTP_USER'],
@@ -22,26 +22,26 @@ module Idid
     attr_accessor :delivery
 
     # Public: configuration to use with iDoneThis
-    # 
+    #
     # options - Hash with configuration options
     #           project    - Name of the project to post to (e.g.
     #                        project.idonethis.com)
     #           email      - Email address to use when sending mail.
-    #           delivery - Email delivery configuration Hash:
+    #           delivery   - Email delivery configuration Hash:
     #                        method  - Symbol (:smtp|:sendmail|:exim)
     #                        options - Configuration Hash for the
     #                        delivery method (see:
     #                        https://github.com/mikel/mail).
     #
     # Returns a new Idid::Configuration instance
-    def initialize options = {}
-      options = options.merge(read_config) if read_config
-      raise ArgumentError.new("Provide a project to use.") unless options['project']
-      raise ArgumentError.new("Provide an email address.") unless options['email']
-      raise ArgumentError.new("Provide a delivery method.") unless options['delivery']
+    def initialize(options = {})
+      options = read_config.merge options if read_config
+      raise ArgumentError.new "Provide a project to use." unless options['project']
+      raise ArgumentError.new "Provide an email address." unless options['email']
+      raise ArgumentError.new "Provide a delivery method." unless options['delivery']
 
-      @project    = options['project']
-      @email      = options['email']
+      @project = options['project']
+      @email = options['email']
       @delivery = options['delivery']
     end
 
@@ -68,7 +68,7 @@ module Idid
     end
 
     def self.config_file
-      File.join( ENV['HOME'], '.idid.yml' )
+      File.join ENV['HOME'], '.idid.yml'
     end
   end
 end
