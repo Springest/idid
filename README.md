@@ -8,6 +8,8 @@ Ruby CLI to [iDoneThis](http://idonethis.com).
 
     $ idid Something awesome that my colleagues should know about.
 
+See `idid -h` for more available options.
+
 ## Installation
 
     $ [sudo] gem install idid
@@ -15,9 +17,8 @@ Ruby CLI to [iDoneThis](http://idonethis.com).
 ## Todo
 
 1. Write some more tests for mail delivery configurations.
-2. Keeping of dones locally for easy review.
-3. Off-line support (queue dones and send later).
-4. Support for iDoneThis personal.
+2. Off-line support (queue dones and send later).
+3. Support for iDoneThis personal.
 
 ## Contributing
 
