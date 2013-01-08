@@ -37,6 +37,6 @@ else
     Idid::Delivery.new(config).email task.to_s
     Idid::Interactive.status "Got it! Let's get some more done!"
   else
-    Idid::Interactive.fail "Shoot! An empty message cannot be send!"
+    Idid::Interactive.fail "Shoot! An empty message cannot be sent!"
   end
 end
