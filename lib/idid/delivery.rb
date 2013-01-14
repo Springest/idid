@@ -24,7 +24,7 @@ module Idid
 
       Mail.deliver do
         from    config.email
-        to      "#{config.project}@team.idonethis.com"
+        to      config.idonethis_email
         subject "I did this"
         body    message
       end

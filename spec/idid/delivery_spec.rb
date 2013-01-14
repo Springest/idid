@@ -7,9 +7,10 @@ describe Idid::Delivery do
   let(:delivery) { Idid::Delivery.new config }
   let(:config) do
     Idid::Configuration.new(
-      'project' => 'foo',
+      'team' => 'foo',
       'email' => 'john@example.com',
-      'delivery' => { 'method' => :test }
+      'delivery' => { 'method' => :test },
+      'account_type' => 'team'
     )
   end
 
