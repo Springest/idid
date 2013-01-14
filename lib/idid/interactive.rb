@@ -6,9 +6,17 @@ module Idid
         status "Please take a moment to create a new configuration.."
         config = user_config
         config['delivery'] ||= {}
-        user_config_from_key 'project', "What is the name of your iDoneThis project (look at the url: <project>.idonethis.com)", nil, config
-        user_config_from_key 'email', "What is your associated email address for this iDoneThis project?", nil, config
-        user_config_from_key 'method', "How do you want to send emails to iDoneThis? (smtp, sendmail, exim)", 'smtp', config['delivery']
+
+        user_config_from_key 'account_type', "What kind of iDoneThis account do you have? (personal|team)", 'personal', config
+
+        if config["account_type"] == 'team'
+          user_config_from_key 'team', "What is the name of your iDoneThis team? (check the URL <team>.idonethis.com).", nil, config
+        else
+          config["team"] = nil
+        end
+
+        user_config_from_key 'email', "What is your associated email address for this iDoneThis account?", nil, config
+        user_config_from_key 'method', "How do you want to send emails to iDoneThis? (smtp|sendmail|exim)", 'smtp', config['delivery']
 
         case config['delivery']['method']
         when 'smtp'
