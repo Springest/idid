@@ -20,6 +20,9 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rspec', '~> 2.12.0'
   gem.add_development_dependency 'travis-lint'
+  gem.add_development_dependency 'guard'
+  gem.add_development_dependency 'guard-rspec'
+  gem.add_development_dependency 'growl'
 
   gem.add_runtime_dependency 'mail', '~> 2.5.3'
   gem.add_runtime_dependency 'json', '~> 1.7.5'
