@@ -12,7 +12,6 @@ module Idid
     # Returns an instance of Task
     def initialize(contents, logdate = nil)
       @contents = contents
-      @log = Task.read_log
       @logdate = logdate || Date.today
     end
 
@@ -24,13 +23,13 @@ module Idid
     def save
       logdate = @logdate.strftime '%Y-%m-%d'
 
-      if @log.has_key? logdate
-        @log[logdate].push @contents
+      if log.has_key? logdate
+        log[logdate].push @contents
       else
-        @log[logdate] = [@contents]
+        log[logdate] = [@contents]
       end
 
-      Task.write_log @log
+      Task.write_log log
     end
 
     # Public: Transform Task into a String
@@ -38,6 +37,10 @@ module Idid
     # Returns the String with the contents of the task
     def to_s
       @contents
+    end
+
+    def log
+      @log ||= Task.read_log
     end
 
     # Public: Lists all activities for a given date.
@@ -63,7 +66,7 @@ module Idid
     #
     # Returns the String with the location of the log file
     def self.logfile
-      logfile = File.join ENV['HOME'], '.idid'
+      File.join ENV['HOME'], '.idid'
     end
 
     # Private: Reads the log file into memory.
