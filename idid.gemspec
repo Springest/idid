@@ -22,5 +22,4 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'travis-lint'
 
   gem.add_runtime_dependency 'mail', '~> 2.5.3'
-  gem.add_runtime_dependency 'json', '~> 1.7.5'
 end
