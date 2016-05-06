@@ -1,3 +1,10 @@
+This project is **no longer maintained**.
+
+If you're interested in taking it over, we'd love to hear from you.
+Email [developers@springest.com](mailto:developers@springest.com).
+
+*****
+
 # Idid
 
 [![Build Status](https://travis-ci.org/foxycoder/idid.png)](https://travis-ci.org/foxycoder/idid)
