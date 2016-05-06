@@ -8,3 +8,8 @@ RSpec.configure do |config|
   config.tty = true
   config.formatter = :progress
 end
+
+def test_json
+  root = File.expand_path(File.dirname(__FILE__))
+  "#{root}/test.json"
+end
